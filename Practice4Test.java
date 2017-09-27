@@ -26,6 +26,14 @@ public class Practice4Test {
 	
 	public boolean isPalindrome(String item) {
 		clearData();
+		
+		// Modifications to isPalindrome() function to ensure correctness for mixed-case and multi-phrase expressions.
+		item = item.toLowerCase();
+		if(item.contains(" ") || item.contains("!")) {
+			item = item.replace(" ", "");
+			item = item.replace("!", "");
+		}
+		
 		for (int i = 0; i < item.length(); i++) {
 			stack.push(item.substring(i, i+1));
 			queue.enqueue(item.substring(i, i+1));
